@@ -5,17 +5,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Shopping Center</title>
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/index.css" />
     </head>
     <body>
-        <!-- Header -->
-        <%- include('../partials/header.ejs') %>
-        <!-- Nav -->
-        <%- include('../partials/nav.ejs') %>
+        <script src="/js/index.js" defer="true"></script>
+        <script
+            src="https://kit.fontawesome.com/a076d05399.js"
+            crossorigin="anonymous"
+        ></script>
         <!-- Main -->
-        <h1>Test Website</h1>
-        <!-- Footer -->
-        <%- include('../partials/footer.ejs') %>
+        <main>
+            <div id="sidebar">
+                <h3>Categories</h3>
+                <ul id="shops"></ul>
+            </div>
+            <div id="map">
+                <%- include('../partials/map.ejs') %>
+            </div>
+        </main>
     </body>
 </html>

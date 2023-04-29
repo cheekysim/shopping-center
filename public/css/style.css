@@ -92,6 +92,11 @@ h6 {
     color: var(--color-text);
 }
 
+span {
+    font-size: 2rem;
+    color: var(--color-text);
+}
+
 p {
     font-size: 2rem;
     color: var(--color-text);
