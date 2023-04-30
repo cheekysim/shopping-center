@@ -4,7 +4,7 @@
     --map-offset-y: 0;
     transform: scale(var(--map-scale))
         translate(var(--map-offset-x), var(--map-offset-y));
-    cursor: pointer;
+    cursor: grab;
 }
 
 #map-svg:active {
