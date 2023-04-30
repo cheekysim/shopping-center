@@ -23,7 +23,7 @@
     overflow: hidden;
 }
 
-.map-1 {
+.cls-1 {
     fill: transparent;
     stroke: var(--color-text);
     stroke-miterlimit: 10;

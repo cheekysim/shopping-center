@@ -1,41 +1,29 @@
 {
-    "banks": [
-        "santandare",
-        "barclays",
-        "lloyds"
-    ],
-    "shoes": [
-        "sports_direct",
-        "trespass",
-        "superdry",
-        "select"
-    ],
-    "parking": [
-        "parking_b",
-        "parking_a"
-    ],
-    "clothes": [
-        "new_look",
-        "superdry",
-        "select",
-        "primark"
-    ],
-    "jewellery": [
-        "pandora",
-        "rolex"
-    ],
-    "electronics": [
-        "apple",
-        "o2"
-    ],
-    "restaurants": [
-        "prezzo",
-        "nandos"
-    ],
-    "supermarkets": [
-        "tesco_extra"
-    ],
+    "banks": ["santandare", "barclays", "lloyds"],
+
+    "shoes": ["sports_direct", "trespass", "superdry", "select"],
+
+    "parking": ["parking_a", "parking_b"],
+
+    "clothes": ["new_look", "superdry", "select", "primark"],
+
+    "jewellery": ["pandora", "rolex"],
+
+    "electronics": ["apple", "o2"],
+
+    "restaurants": ["prezzo", "nandos"],
+
+    "supermarkets": ["tesco_extra"],
+
     "other": [
-        "fountain"
+        "fountain",
+
+        "fire_exit_1",
+
+        "fire_exit_2",
+
+        "fire_exit_3",
+
+        "fire_exit_4"
     ]
 }
