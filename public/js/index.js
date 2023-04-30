@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 getStores();
 
 // Send request to get stores
@@ -40,14 +41,26 @@ function renderStores(stores) {
         button.onmouseenter = () => {
             stores[key].forEach((store) => {
                 const storeEl = document.getElementById(store);
-                storeEl.classList.add('map-hover');
+                // storeEl.classList.add('map-hover');
+                storeEl.animate(
+                    {
+                        fill: 'var(--color-primary)'
+                    },
+                    { duration: 200, fill: 'forwards' }
+                );
             });
         };
 
         button.onmouseleave = () => {
             stores[key].forEach((store) => {
                 const storeEl = document.getElementById(store);
-                storeEl.classList.remove('map-hover');
+                // storeEl.classList.remove('map-hover');
+                storeEl.animate(
+                    {
+                        fill: 'transparent'
+                    },
+                    { duration: 200, fill: 'forwards' }
+                );
             });
         };
 
@@ -62,18 +75,30 @@ function renderStores(stores) {
             spanEl.id = `${store}-list`;
             spanEl.innerText = title(store.replace('_', ' '));
 
-
             // Handle Store Hover
             spanEl.onmouseenter = () => {
-                const storeEl = document.getElementById(store.replace('-list', ''));
-                storeEl.classList.add('map-hover');
+                const storeEl = document.getElementById(
+                    store.replace('-list', '')
+                );
+                storeEl.animate(
+                    {
+                        fill: 'var(--color-primary)'
+                    },
+                    { duration: 200, fill: 'forwards' }
+                );
             };
 
             spanEl.onmouseleave = () => {
-                const storeEl = document.getElementById(store.replace('-list', ''));
-                storeEl.classList.remove('map-hover');
+                const storeEl = document.getElementById(
+                    store.replace('-list', '')
+                );
+                storeEl.animate(
+                    {
+                        fill: 'transparent'
+                    },
+                    { duration: 200, fill: 'forwards' }
+                );
             };
-
             // Append to Category
             categoryUlEl.appendChild(listEl);
             listEl.appendChild(spanEl);

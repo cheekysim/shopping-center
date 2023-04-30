@@ -1,4 +1,6 @@
-<svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2164 2162">
+<link rel="stylesheet" href="/css/map.css">
+<script src="/js/map.js" defer></script>
+<svg id="map-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2164 2162">
   <path id="pandora" class="map-1" d="m952.07,543v309.95c0,55.23-44.77,100-100,100h-308.07v-409.95h408.07Z"/>
   <rect id="sports_direct" class="map-1" x="5" y="4" width="269.5" height="948.95"/>
   <rect id="prezzo" class="map-1" x="274.5" y="543" width="269.5" height="409.95"/>
@@ -19,3 +21,8 @@
   <rect id="primark" class="map-1" x="1212.07" y="1621" width="679.43" height="539"/>
   <circle id="fountain" class="map-1" cx="1082" cy="1081" r="99"/>
 </svg>
+<div class="map-nav">
+  <button type="reset" id="reset-map" onclick="center()"><i class="fas fa-circle"></i></button>
+  <button id="zoom-in" onclick="zoomin()"><i class="fas fa-chevron-up"></i></button>
+  <button id="zoom-out" onclick="zoomout()"><i class="fas fa-chevron-down"></i></button>
+</div>
