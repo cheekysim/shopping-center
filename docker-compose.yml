@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mark:
+    container_name: mark
+    pull_policy: build
+    build: .
+    ports:
+      - 3040:3000
+    labels:
+      - "traefik.http.routers.mark.rule=Host(`mark.cheekysim.com`)"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    name: traefik_default
