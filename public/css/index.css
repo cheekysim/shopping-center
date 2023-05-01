@@ -2,6 +2,10 @@
     margin: 0 0.5rem;
 }
 
+html {
+    overflow: hidden;
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -20,35 +24,44 @@ main {
     overflow: auto;
 }
 
+#sidebar > h4 {
+    margin: 1rem 0;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
 #sidebar > ul {
     align-self: start;
 }
 
-
-
-#shops > li {
+#shops > li,
+#search-list > li {
     margin: 1rem 0;
 }
 
-.category > ul > li {
+.category > ul > li,
+.search-store {
     padding: 0.2rem 1rem;
     width: fit-content;
     border-radius: 1rem;
     transition: all 0.2s ease-in-out;
 }
 
-.category > ul > li:hover {
+.category > ul > li:hover,
+.search-store:hover {
     background-color: var(--color-tertiary);
 }
 
-.category > ul {
+.category > ul,
+.search-list {
     --bar-width: 0.5rem;
     --bar-padding: 1.6rem;
     position: relative;
     padding-left: calc(var(--bar-padding) * 2);
 }
 
-.category > ul::after {
+.category > ul::after,
+.search-list::after {
     content: '';
     position: absolute;
     top: 1rem;
@@ -82,3 +95,12 @@ span {
     display: none;
 }
 
+#search-bar {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    background-color: var(--color-tertiary);
+}

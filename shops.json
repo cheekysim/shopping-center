@@ -1,7 +1,7 @@
 {
     "banks": ["santandare", "barclays", "lloyds"],
 
-    "shoes": ["sports_direct", "trespass", "superdry", "select"],
+    "shoes": ["sports_direct", "trespass"],
 
     "parking": ["parking_a", "parking_b"],
 

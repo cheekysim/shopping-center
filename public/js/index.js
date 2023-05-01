@@ -8,6 +8,7 @@ function getStores() {
         .then((res) => res.json())
         .then((data) => {
             renderStores(data);
+            setupSearch(data);
         });
 }
 
@@ -131,9 +132,96 @@ function handleButtonClick(e) {
     }
 }
 
+function setupSearch(data) {
+    console.log(data);
+    const searchBar = document.getElementById('search-bar');
+    const shopList = document.getElementById('shops');
+    searchBar.addEventListener('keyup', (e) => {
+        if (e.target.value === '') {
+            shopList.style.display = 'block';
+            const searchList = document.getElementById('search-list');
+            if (searchList) {
+                searchList.remove();
+            }
+            return;
+        }
+        shopList.style.display = 'none';
+
+        const filtered = Object.values(data)
+            .flat(1)
+            .filter((store) => {
+                const matches = getMatchingChars(e.target.value, store).length;
+                return matches > e.target.value.length / 2;
+            })
+            .map((store) => {
+                const matches = getMatchingChars(e.target.value, store).length;
+                return { store, matches };
+            })
+            .sort((a, b) => {
+                return b.matches - a.matches;
+            })
+            .map((store) => store.store);
+
+        // Clear Previous Search
+        const searchList = document.getElementById('search-list');
+        if (searchList) {
+            searchList.remove();
+        }
+
+        // Render Search
+        renderSearch(filtered);
+    });
+}
+
+function renderSearch(data) {
+    const searchList = document.createElement('ul');
+    searchList.classList.add('search-list');
+    searchList.id = 'search-list';
+
+    data.forEach((store) => {
+        const storeLi = document.createElement('li');
+        storeLi.classList.add('search-store');
+        storeLi.id = `${store}-search`;
+
+        const storeEl = document.createElement('span');
+        storeEl.innerText = title(store);
+        // Handle Store Hover
+        const mapEl = document.getElementById(storeLi.id.split('-')[0]);
+        storeLi.onmouseenter = () => {
+            mapEl.animate(
+                {
+                    fill: 'var(--color-primary)'
+                },
+                { duration: 200, fill: 'forwards' }
+            );
+        };
+
+        storeLi.onmouseleave = () => {
+            mapEl.animate(
+                {
+                    fill: 'transparent'
+                },
+                { duration: 200, fill: 'forwards' }
+            );
+        };
+
+        storeLi.appendChild(storeEl);
+        searchList.appendChild(storeLi);
+    });
+
+    document.getElementById('sidebar').appendChild(searchList);
+}
+
+function getMatchingChars(str1, str2) {
+    const str2Regex = new RegExp(`[${str2.toLowerCase()}]`, 'g');
+    return str1.toLowerCase().match(str2Regex) || [];
+}
+
 function title(str) {
-    return str.replace('_', ' ').replace(
-        /\w\S*/g,
-        (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    );
+    return str
+        .replace(/_/g, ' ')
+        .replace(
+            /\w\S*/g,
+            (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        );
 }

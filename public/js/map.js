@@ -67,7 +67,6 @@ map.onwheel = (event) => {
         '--map-scale': clamp(newScale, 0.8, 3).toFixed(1),
         duration: 0.2
     });
-    console.log(scale);
 };
 
 // on double click, reset
