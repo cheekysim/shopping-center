@@ -104,3 +104,12 @@ span {
     font-size: 1.5rem;
     background-color: var(--color-tertiary);
 }
+
+@media (orientation: portrait) {
+    main {
+        flex-direction: column;
+    }
+    #sidebar {
+        width: 100%;
+    }
+}
