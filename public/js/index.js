@@ -213,7 +213,7 @@ function renderSearch(data) {
 }
 
 function getMatchingChars(str1, str2) {
-    const str2Regex = new RegExp(`[${str2.toLowerCase()}]`, 'g');
+    const str2Regex = new RegExp(`[${str2}]`, 'gi');
     return str1.toLowerCase().match(str2Regex) || [];
 }
 
