@@ -1,16 +1,34 @@
 /* eslint-disable no-undef */
 
-getStores();
+const shops = {
+    banks: ['santandare', 'barclays', 'lloyds'],
 
-// Send request to get stores
-function getStores() {
-    fetch('api/stores')
-        .then((res) => res.json())
-        .then((data) => {
-            renderStores(data);
-            setupSearch(data);
-        });
-}
+    shoes: ['sports_direct', 'trespass'],
+
+    parking: ['parking_a', 'parking_b'],
+
+    clothes: ['new_look', 'superdry', 'select', 'primark'],
+
+    jewellery: ['pandora', 'rolex'],
+
+    electronics: ['apple', 'o2'],
+
+    restaurants: ['prezzo', 'nandos'],
+
+    supermarkets: ['tesco_extra'],
+
+    other: [
+        'fountain',
+
+        'fire_exit_1',
+
+        'fire_exit_2',
+
+        'fire_exit_3',
+
+        'fire_exit_4'
+    ]
+};
 
 const descriptions = {
     santandare:
@@ -56,6 +74,9 @@ const descriptions = {
     fire_exit_4:
         'Fire Exit 4 is located in the bottom middle of the centre. It is the closest fire exit to Parking A.'
 };
+
+renderStores(shops);
+setupSearch(shops);
 
 function renderStores(stores) {
     Object.keys(stores).forEach((key) => {
