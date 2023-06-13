@@ -6,15 +6,10 @@
     "type": "module",
     "scripts": {
         "clean": "rimraf dist",
-        "lint": "eslint . --ext .ts",
-        "lint:fix": "eslint . --ext .ts --fix",
-        "pretty": "npx prettier -w ./src",
+        "lint": "eslint . --ext .ts --fix",
         "build": "tsc",
         "start": "node .",
-        "watch": "nodemon --ext ts,json --watch src --exec \"npm run lint:fix && ts-node ./src/server.ts\"",
-        "watch:build": "nodemon --ext ts,json --watch src --exec \"rpm run clean && npm run lint:fix && npm run pretty && npm run build && npm run start\"",
-        "watch:lint": "nodemon --ext ts,json --watch src --exec \"npm run lint:fix && npm run pretty\"",
-        "dev": "npm-run-all clean build watch",
+        "dev": "nodemon --ext ts,json --watch src --exec \"ts-node ./src/server.ts\"",
         "prod": "npm-run-all clean lint pretty build start"
     },
     "repository": {
