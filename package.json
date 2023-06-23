@@ -10,6 +10,7 @@
         "build": "tsc",
         "start": "node .",
         "dev": "nodemon --ext ts,json --watch src --exec \"ts-node ./src/server.ts\"",
+        "pretty": "prettier --write \"src/**/*.ts\"",
         "prod": "npm-run-all clean lint pretty build start"
     },
     "repository": {
